@@ -1,0 +1,47 @@
+@import "shared.css.less";
+
+.landing {
+  border-top: 2px solid @spacelightblue;
+  border-bottom: 2px solid @spacelightblue;
+  background: image-url("landing.png");
+  padding: 80px 0;
+}
+
+.landing-brief {
+  font-size: 60px;
+  line-height: 82px;
+  font-weight: 700;
+  color: white;
+  width: 540px;
+  float: left;
+}
+
+.landing-sign-up {
+  width: 380px;
+  float: right;
+  text-align: center;
+
+  a {
+    color: @spacewhite;
+    text-decoration: none;
+    position: relative;
+    top: -18px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+    i.fa {
+      font-size: 200px;
+      line-height: 180px;
+      display: block;
+    }
+
+    span {
+      font-size: 24px;
+      font-weight: 500;
+      border-bottom: 1px solid;
+    }
+
+    &:hover {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+  }
+}

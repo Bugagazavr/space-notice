@@ -1,0 +1,53 @@
+@import "shared.css.less";
+
+.howto {
+
+}
+
+.howto-instructions {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: @monospace;
+  width: 540px;
+  float: left;
+  color: @spacewhite;
+  padding: 64px 0 100px;
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+  }
+
+  li {
+    margin-bottom: 24px;
+  }
+
+  a {
+    color: @spacewhite;
+  }
+}
+
+.howto-examples {
+  position: relative;
+  height: 200px;
+  width: 380px;
+  float: right;
+
+  img {
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+
+  img:nth-child(1) {
+    top: 48px;
+  }
+
+  img:nth-child(2) {
+    top: 114px;
+  }
+
+  img:nth-child(3) {
+    top: 180px;
+  }
+}

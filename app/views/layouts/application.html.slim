@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title SpaceNotice
+    = stylesheet_link_tag    "application", media: "all"
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    header class="main-header"
+      div class="wrapper"
+        h1 class="main-header-title" “Obey me”
+        div class="main-header-auth"
+          - if logged_in?
+            = link_to "Logout", logout_path
+          - else
+            = link_to "Login", "/auth/github"
+        div class="clearfix"
+
+    = yield
+
+    footer class="main-footer"
+      | Created with <3 by <a href="http://github.com/releu">@releu</a>. Sponsored by <a href="http://github.com/evrone">@evrone</a>.
+
+    javascript:
+      $(function(){
+        var diff = $(window).height() - $(document.body).height()
+        if (diff > 0) {
+          var footer = $(".main-footer")
+          footer.height(diff + footer.height())
+        }
+      })
