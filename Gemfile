@@ -17,3 +17,4 @@ gem "rails_12factor", group: :production
 gem "dotenv-rails"
 gem "redcarpet"
 gem "omniauth-github"
+gem "thread_safe", "0.2.0"
