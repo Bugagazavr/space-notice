@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+config/apple_push_notification.pem
+config/push_package
+config/package
