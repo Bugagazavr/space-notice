@@ -18,3 +18,4 @@
 config/apple_push_notification.pem
 config/push_package
 config/package
+.env
