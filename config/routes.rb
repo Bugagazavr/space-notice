@@ -8,5 +8,7 @@ SpaceNotice::Application.routes.draw do
 
   get "/subscribe/:token" => "subscriptions#new", as: :subscribe
 
+  post "/v1/pushPackages/web.com.spacenotice" => "push_packages#show"
+
   root "home#show"
 end
