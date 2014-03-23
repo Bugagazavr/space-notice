@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
     subscriptions.where(device: device).first_or_create!
   end
 
-  def unsubscrie(device)
+  def unsubscribe(device)
     subscriptions.where(device: device).destroy_all
   end
 end
