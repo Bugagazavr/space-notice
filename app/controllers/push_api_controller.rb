@@ -19,4 +19,9 @@ class PushApiController < ApplicationController
   def unsubscribe
    subscribe
   end
+
+  private
+  def package_params
+    params.require(:push_api).permit(:token)
+  end
 end
