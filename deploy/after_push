@@ -4,7 +4,7 @@ oldrev=$1
 newrev=$2
 
 run() {
-  [ -x $1 ] && $1 $oldrev $newrev
+  /home/git/.rbenv/bin/rbenv exec ruby
 }
 
 echo files changed: $(git diff $oldrev $newrev --diff-filter=ACDMR --name-only | wc -l)
@@ -13,5 +13,5 @@ umask 002
 
 git submodule sync && git submodule update --init --recursive
 
-rbenv exec ruby run deploy/before_restart
-rbenv exec ruby run deploy/restart && run deploy/after_restart
+run deploy/before_restart
+run deploy/restart && run deploy/after_restart
