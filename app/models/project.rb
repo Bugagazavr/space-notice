@@ -11,4 +11,10 @@ class Project < ActiveRecord::Base
   def unsubscribe(device)
     subscriptions.where(device: device).destroy_all
   end
+
+  def push(message)
+    subscriptions.each do |s|
+      Pusher.new(device_token: s.token, title: message).push
+    end
+  end
 end
