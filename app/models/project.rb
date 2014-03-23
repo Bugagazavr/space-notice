@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
 
   def push(message)
     subscriptions.each do |s|
-      Pusher.new(device_token: s.token, title: message).push
+      Pusher.new(device_token: s.device, title: message).push
     end
   end
 end
