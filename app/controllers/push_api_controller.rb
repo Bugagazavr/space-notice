@@ -22,6 +22,6 @@ class PushApiController < ApplicationController
 
   private
   def package_params
-    params.require(:push_api).permit(:token)
+    params.require(:push_api).permit(:authenticationToken)
   end
 end

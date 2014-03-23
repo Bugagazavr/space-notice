@@ -1,4 +1,4 @@
 javascript:
-  var user = { token: "#{params[:token]}" }
+  var user = { authenticationToken: "#{params[:token]}" }
   var url = "https://space-notice.com"
   window.safari.pushNotification.requestPermission(url, "web.com.spacenotice", user, function(a) {console.log(a)});
