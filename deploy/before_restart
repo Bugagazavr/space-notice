@@ -7,7 +7,7 @@ end
 
 RAILS_ENV   = ENV['RAILS_ENV'] || 'production'
 use_bundler = File.file? 'Gemfile'
-rake_cmd    = use_bundler ? 'bundle exec rake' : 'rake'
+rake_cmd    = "rbenv exec bundle exec rake"
 
 if use_bundler
   bundler_args = ['--deployment']
@@ -15,7 +15,7 @@ if use_bundler
   bundler_args << '--without' << BUNDLE_WITHOUT unless BUNDLE_WITHOUT.empty?
 
   # update gem bundle
-  run "bundle install #{bundler_args.join(' ')}"
+  run "rbenv exec bundle bundle install #{bundler_args.join(' ')}"
 end
 
 if File.file? 'Rakefile'
