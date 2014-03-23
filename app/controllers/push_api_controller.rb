@@ -2,7 +2,7 @@ class PushApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def package
-    send_data Package.create(package_params), type: "application/zip"
+    send_file Package.create(package_params), type: "application/zip"
   end
 
   def log

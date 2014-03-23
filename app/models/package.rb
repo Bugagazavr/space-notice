@@ -1,6 +1,6 @@
 class Package
   attr_reader :path
-  
+
   def initialize(params)
     @website_params = default_website_params.merge(params)
     @iconset_path = "#{Rails.root}/config/package/icons"
