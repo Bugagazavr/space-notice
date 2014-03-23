@@ -21,7 +21,7 @@ class Pusher
 
   def new_notification(params)
     Grocer::SafariNotification.new({
-      body:     'Hi',
+      title:    'Space Notice',
       action:   'Read',
       url_args: []
     }.merge(params))
