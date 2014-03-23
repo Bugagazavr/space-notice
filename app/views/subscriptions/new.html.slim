@@ -1,4 +1,36 @@
+section class="subscription"
+  header
+    h1 class="subscription-title"
+      = "You are subscribing to #{@project.user.username}"
+
+  div class="subscription-status"
+    span class="granted" title="You are subscribed"
+      i class="fa fa-check"
+    span class="denied" title="You are unsubscribed"
+      i class="fa fa-times"
+    span class="default" title="You are unsubscribed"
+      i class="fa fa-question"
+
 javascript:
   var user = { authenticationToken: "#{params[:token]}" }
   var url = "https://space-notice.com"
-  window.safari.pushNotification.requestPermission(url, "web.com.spacenotice", user, function(a) {console.log(a)});
+
+  var checkRemotePermission = function(permissionData) {
+    $(".subscription-status").find("span").hide()
+    $(".subscription-status").find("." + permissionData.permission).show()
+
+    if (permissionData.permission === "default") {
+      window.safari.pushNotification.requestPermission(url, "web.com.spacenotice", user, checkRemotePermission);
+      //
+    } else if (permissionData.permission === "denied") {
+      //
+    } else if (permissionData.permission === "granted") {
+      //
+    }
+  };
+
+
+  if ("safari" in window && "pushNotification" in window.safari) {
+    var permissionData = window.safari.pushNotification.permission("web.com.spacenotice");
+    checkRemotePermission(permissionData);
+  }

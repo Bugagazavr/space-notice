@@ -6,7 +6,7 @@ SpaceNotice::Application.routes.draw do
     resources :notification_types, only: [:create, :destroy]
   end
 
-  get "/s" => "subscriptions#new", as: :new_subscription
+  get "/s" => "subscriptions#new", as: :subscription
   post "/p/:token" => "notifications#create", as: :notifications
 
   post "/v1/pushPackages/web.com.spacenotice" => "push_api#package"
