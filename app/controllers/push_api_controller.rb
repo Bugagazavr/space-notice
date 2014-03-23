@@ -6,22 +6,27 @@ class PushApiController < ApplicationController
   end
 
   def log
-    Rails.logger.info params.inspect
     render nothing: true
   end
 
   def subscribe
-    Rails.logger.info request.headers["HTTP_AUTHORIZATION"].inspect
-    Rails.logger.info params.inspect
-    render nothing: true
+    @project = Project.find_by_token!(token)
+    @project.subscribe(params[:token])
+    head :ok
   end
 
   def unsubscribe
-   subscribe
+    @project = Project.find_by_token!(token)
+    @project.unsubscribe(params[:token])
+    head :ok
   end
 
   private
   def package_params
     params.require(:push_api).permit(:authenticationToken)
+  end
+
+  def token
+    request.headers["HTTP_AUTHORIZATION"][/ApplePushNotifications (.*)$/, 1]
   end
 end

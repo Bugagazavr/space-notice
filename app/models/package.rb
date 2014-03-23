@@ -26,6 +26,6 @@ class Package
       "allowedDomains"      => ["https://space-notice.com"],
       "urlFormatString"     => "https://space-notice.com",
       "authenticationToken" => "",
-      "webServiceURL"       => "https://space-notice.com/s" }
+      "webServiceURL"       => "https://space-notice.com" }
   end
 end
