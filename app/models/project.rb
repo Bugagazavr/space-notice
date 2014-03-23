@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  has_many :notification_types
 
-  validates :user, :name, presence: true
+  validates :user, :name, :token, presence: true
 end

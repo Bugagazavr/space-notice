@@ -19,12 +19,16 @@ body {
 }
 
 .main-header-title {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 700;
-  color: @spacewhite;
   position: relative;
   float: left;
   width: 780px;
+  left: 46px;
+  color: darken(@spacewhite, 20%);
+  font-family: @monospace;
+  padding-top: 10px;
+  min-height: 1em;
 
   &:before {
     content: "";
@@ -60,4 +64,8 @@ body {
   a {
     color: @spacewhite;
   }
+}
+
+#typed-cursor {
+  display: none;
 }

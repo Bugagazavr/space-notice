@@ -9,7 +9,10 @@ html
   body
     header class="main-header"
       div class="wrapper"
-        h1 class="main-header-title" “Obey me”
+        - if logged_in?
+          h1 class="main-header-title typed" Hello, #{current_user.username}
+        - else
+          h1 class="main-header-title" Space Notice
         div class="main-header-auth"
           - if logged_in?
             = link_to "Logout", logout_path

@@ -3,31 +3,18 @@
 section class="projects"
   header
     h1 class="projects-title"
-      div class="wrapper" Dashboard
+      div class="wrapper" Subscribe and Push
 
   div class="wrapper"
     div class="projects-list"
       - projects.each do |project|
         div class="projects-list-item"
-          div class="projects-list-item-name"
-            = project.name
-            = link_to project, method: :delete do
-              i class="fa fa-trash-o"
-          div class="projects-list-item-notification-type-list"
-            - project.notification_types.order(:id).each do |notification_type|
-              div class="projects-list-item-notification-type-list-item"
-                | #{notification_type.name}: #{notification_type.token}
-                = link_to subscribe_url(notification_type.token) do
-                  i class="fa fa-external-link"
-                = link_to [project, notification_type], method: :delete do
-                  i class="fa fa-trash-o"
-          div class="projects-list-item-notification-type-form"
-            = form_for [project, NotificationType.new] do |f|
-              = f.hidden_field :project_id
-              = f.text_field :name, placeholder: "Service name"
-              = f.submit "Add"
-
-    div class="projects-form"
-      = form_for Project.new do |f|
-        = f.text_field :name, placeholder: "Project name"
-        = f.submit "Add"
+          span class="comment" # In order to subscribe open this link in Safari 7 or above:
+          = "\n"
+          | https://space-notice.com/s/#{project.token}
+          = "\n\n"
+          span class="comment" # Push notice by HTTP POST request:
+          = "\n"
+          | curl -d "message=Space%20Notice" \
+          = "\n"
+          |   https://space-notice.com/p/#{project.token}

@@ -15,121 +15,20 @@
   color: white;
 }
 
-.projects-form {
-  padding: 20px 0;
-  margin-bottom: 100px;
-
-  input[type="text"] {
-    border: 1px solid @spacelightblue;
-    font-size: 24px;
-    padding: 4px 8px;
-    background: @spacewhite;
-    border-radius: 4px;
-    outline: none;
-    margin: 0;
-    opacity: 0.5;
-
-    &:focus, &:hover {
-      opacity: 1;
-    }
-  }
-
-  input[type="submit"] {
-    border: 1px solid @spacelightblue;
-    font-size: 24px;
-    padding: 4px 8px;
-    background: @spacewhite;
-    border-radius: 4px;
-    outline: none;
-    margin: 0;
-    color: @spaceblue;
-    margin-left: 12px;
-    cursor: pointer;
-    opacity: 0.5;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
 .projects-list {
   padding: 40px 0 0;
   margin-bottom: 20px;
 }
 
 .projects-list-item {
-  margin-bottom: 40px;
-}
-
-.projects-list-item-name {
-  font-size: 24px;
-  color: @spacewhite;
-  margin-bottom: 20px;
-
-  a {
-    color: @spacelightblue;
-    margin-left: 20px;
-  }
-}
-
-.projects-list-item-notification-type-list, .projects-list-item-notification-type-form {
-  margin-left: 24px;
-}
-
-.projects-list-item-notification-type-list {
-  margin-bottom: 30px;
-}
-
-.projects-list-item-notification-type-list-item {
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   font-family: @monospace;
-  font-size: 18px;
   color: @spacewhite;
+  white-space: pre;
+  font-size: 24px;
+  line-height: 42px;
 
-  a {
-    color: @spacelightblue;
-    margin-left: 20px;
-
-    &:hover {
-      color: @spacewhite;
-    }
-  }
-}
-
-.projects-list-item-notification-type-form {
-  input[type="text"] {
-    border: 1px solid @spacelightblue;
-    font-size: 18px;
-    padding: 4px 8px;
-    background: @spacewhite;
-    border-radius: 4px;
-    outline: none;
-    margin: 0;
-    opacity: 0.5;
-    font-family: @monospace;
-
-    &:focus, &:hover {
-      opacity: 1;
-    }
-  }
-
-  input[type="submit"] {
-    border: 1px solid @spacelightblue;
-    font-size: 18px;
-    padding: 4px 8px;
-    background: @spacewhite;
-    border-radius: 4px;
-    outline: none;
-    margin: 0;
-    color: @spaceblue;
-    margin-left: 10px;
-    cursor: pointer;
-    opacity: 0.5;
-    font-family: @monospace;
-
-    &:hover {
-      opacity: 1;
-    }
+  .comment {
+    color: darken(@spacewhite, 20%);
   }
 }

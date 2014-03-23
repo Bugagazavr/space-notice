@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   def self.get_by_omniauth(omnihash)
     where(github_id: omnihash["uid"]).first || create! do |user|
       user.github_id = omnihash["uid"]
-      user.username  = omnihash["nickname"]
+      user.username  = omnihash["info"]["nickname"]
     end
   end
 
@@ -43,11 +43,9 @@ class User < ActiveRecord::Base
 
   private
   def create_seed_project
-    project = projects.create! do |project|
+    projects.create! do |project|
       project.name = "My Application Name"
-    end
-    project.notification_types.create! do |notification_type|
-      notification_type.name = "My service name"
+      project.token = SecureRandom.hex(16)
     end
   end
 end
