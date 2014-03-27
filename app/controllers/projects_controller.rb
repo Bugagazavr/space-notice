@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def subscribe
-    @project = Project.find(params[:token])
+    @project = Project.find_by_token!(params[:token])
     current_user.subscribe(@project)
     render layout: "subscription"
   end

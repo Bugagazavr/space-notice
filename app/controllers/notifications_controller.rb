@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
 
   def create
     @project = Project.find_by_token!(params[:token])
-    @project.push params[:message]
+    @project.push params[:title], params[:message]
     head :ok
   end
 end

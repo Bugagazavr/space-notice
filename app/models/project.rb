@@ -1,13 +1,16 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   validates :user, :name, :token, presence: true
 
-  def push(message)
+  def push(title, message)
+    params = { body: message, title: name }
+    params[:title] = title if title.present?
+
     subscriptions.includes(user: :devices).each do |subscription|
       subscription.user.devices.each do |device|
-        Pusher.new(device_token: device.token, body: message).push
+        Pusher.new(params.merge(device_token: device.token)).push
       end
     end
   end
