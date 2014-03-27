@@ -1,0 +1,18 @@
+- if logged_in?
+  javascript:
+    var user = { authenticationToken: "#{current_user.token}" }
+    var url = "https://space-notice.com"
+    var checkRemotePermission = function(permissionData) {
+      if (permissionData.permission === "default") {
+        window.safari.pushNotification.requestPermission(url, "web.com.spacenotice", user, checkRemotePermission);
+        //
+      } else if (permissionData.permission === "denied") {
+        //
+      } else if (permissionData.permission === "granted") {
+        //
+      }
+    };
+    if ("safari" in window && "pushNotification" in window.safari) {
+      var permissionData = window.safari.pushNotification.permission("web.com.spacenotice");
+      checkRemotePermission(permissionData);
+    }

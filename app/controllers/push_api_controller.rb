@@ -10,14 +10,14 @@ class PushApiController < ApplicationController
   end
 
   def subscribe
-    @project = Project.find_by_token!(token)
-    @project.subscribe(params[:token])
+    @user = User.find_by_token!(token)
+    @user.add_device(params[:token])
     head :ok
   end
 
   def unsubscribe
-    @project = Project.find_by_token!(token)
-    @project.unsubscribe(params[:token])
+    @user = User.find_by_token!(token)
+    @user.remove_device(params[:token])
     head :ok
   end
 
