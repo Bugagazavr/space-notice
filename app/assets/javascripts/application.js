@@ -16,4 +16,28 @@ $(function(){
       })
     }, 300)
   })
+
+  $(".autosave :input").on("blur", function(){
+    var form = $(this).closest("form")
+    var name = form.find("input[name='project[name]']")
+    if (name.val().length > 0) {
+      $.ajax({
+        type: "POST",
+        url: form.prop("action"),
+        data: form.serialize()
+      });
+    } else {
+      if (confirm("Do you want to delete the project?")) {
+        $.ajax({
+          type: "DELETE",
+          url: form.prop("action"),
+          success: function(){
+            form.closest(".projects-list-item").remove()
+          }
+        });
+      } else {
+        name.val("Application X")
+      }
+    }
+  })
 });

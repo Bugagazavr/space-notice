@@ -9,12 +9,18 @@ section class="projects"
     div class="projects-list"
       - projects.each do |project|
         div class="projects-list-item"
-          span class="comment" # In order to subscribe open this link in Safari 7 or above:
-          = "\n"
-          | https://space-notice.com/s?token=#{project.token}
-          = "\n\n"
-          span class="comment" # Push notice by HTTP POST request:
-          = "\n"
-          | curl -d "message=Space%20Notice" \
-          = "\n"
-          |   https://space-notice.com/p/#{project.token}
+          span class="projects-list-item-name"
+            = form_for project, html: { class: "autosave" } do |f|
+              = f.text_field :name
+          div class="clearfix"
+          span class="projects-list-item-token" = project.token
+
+      div class="projects-add"
+        = link_to "Add project", projects_path, method: :post
+
+    div class="projects-documentation"
+      p class="comment" # To subscribe open this link in Safari 7:
+      p https://space-notice.com/auth/github?token=PROJECT_TOKEN
+      p class="comment" # To push send HTTP POST request:
+      p curl -d "message=Space%20Notice" https://space-notice.com/p/PROJECT_TOKEN
+    div class="clearfix"

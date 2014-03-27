@@ -2,17 +2,19 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @project = current_user.projects.build(project_params)
-    if @project.save
-      redirect_to root_path
-    else
-      render "home/dashboard"
-    end
+    current_user.generate_project!
+    redirect_to root_path
+  end
+
+  def update
+    project = current_user.projects.find(params[:id])
+    project.update(project_params)
+    head :ok
   end
 
   def destroy
     current_user.projects.where(id: params[:id]).destroy_all
-    redirect_to root_path
+    head :ok
   end
 
   private
