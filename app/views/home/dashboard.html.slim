@@ -13,7 +13,10 @@ section class="projects"
             = form_for project, html: { class: "autosave" } do |f|
               = f.text_field :name
           div class="clearfix"
-          span class="projects-list-item-token" = project.token
+          span class="projects-list-item-token"
+            = project.token
+            = link_to "https://space-notice.com/auth/github?token=#{project.token}" do
+              i class="fa fa-external-link"
 
       div class="projects-add"
         = link_to "Add project", projects_path, method: :post
