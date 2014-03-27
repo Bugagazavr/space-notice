@@ -19,8 +19,15 @@ section class="projects"
         = link_to "Add project", projects_path, method: :post
 
     div class="projects-documentation"
-      p class="comment" # To subscribe open this link in Safari 7:
-      p https://space-notice.com/auth/github?token=PROJECT_TOKEN
-      p class="comment" # To push send HTTP POST request:
-      p curl -d "message=Space%20Notice" https://space-notice.com/p/PROJECT_TOKEN
+      p class="comment" # SPACE API
+      p
+        span class="comment" # To subscribe open the link in Safari 7:
+        br
+        | https://space-notice.com/auth/github?token=TOKEN
+      p
+        span class="comment" # Send messages via HTTP POST request:
+        br
+        | curl -d "message=Text&title=Project" \
+        br
+        |   https://space-notice.com/p/TOKEN
     div class="clearfix"
