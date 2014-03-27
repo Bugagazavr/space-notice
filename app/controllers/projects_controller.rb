@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   def unsubscribe
     @project = Project.find(params[:token])
     current_user.unsubscribe(@project)
-    render layout: "subscription"
+    redirect_to root_path
   end
 
   private
