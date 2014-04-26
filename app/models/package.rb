@@ -24,7 +24,7 @@ class Package
     { "websiteName"         => "Space Notice",
       "websitePushID"       => "web.com.spacenotice",
       "allowedDomains"      => ["https://space-notice.com"],
-      "urlFormatString"     => "https://space-notice.com",
+      "urlFormatString"     => "https://space-notice.com/go/%@",
       "authenticationToken" => "",
       "webServiceURL"       => "https://space-notice.com" }
   end
