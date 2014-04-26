@@ -23,6 +23,12 @@
 
 .projects-list-item {
   margin-bottom: 20px;
+
+  &:hover {
+    .projects-list-item-delete {
+      display: inline-block;
+    }
+  }
 }
 
 .projects-list-item-name {
@@ -31,7 +37,7 @@
 
   input {
     background: none;
-    border: 2px solid transparent;
+    border: 2px dotted transparent;
     color: @spacewhite;
     outline: none;
     font-size: 24px;
@@ -39,24 +45,39 @@
     width: 296px;
     left: -4px;
 
+    &:hover {
+      border-color: @spacelightblue;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+
     &:focus {
       border-color: @spacelightblue;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-right-color: transparent;
     }
+  }
+}
+
+.projects-list-item-delete {
+  float: left;
+  color: @spacewhite;
+  display: none;
+  font-size: 24px;
+  position: relative;
+  left: 40px;
+  top: 6px;
+
+  &:hover {
+    color: white;
   }
 }
 
 .projects-list-item-token {
   font-size: 18px;
   color: darken(@spacewhite, 20%);
-
-  a {
-    margin-left: 20px;
-    color: darken(@spacewhite, 20%);
-
-    &:hover {
-      color: @spacewhite;
-    }
-  }
 }
 
 .projects-add {
