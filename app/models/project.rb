@@ -29,5 +29,6 @@ class Project < ActiveRecord::Base
     else
       url = "#{repo["url"]}/pull/#{payload["pull_request_number"]}"
     end
+    push(title, message, url)
   end
 end
