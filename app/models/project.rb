@@ -17,4 +17,17 @@ class Project < ActiveRecord::Base
       end
     end
   end
+
+  def push_payload(string)
+    payload = JSON.parse(string)
+    repo = payload["repository"]
+    title   = "#{repo["owner_name"]}/#{repo["name"]}"
+    message = "#{payload["branch"]}: #{payload["status_message"]}"
+
+    if payload["type"] == "pull_request"
+      url = "#{repo["url"]}/commit/#{payload["commit"]}"
+    else
+      url = "#{repo["url"]}/pull/#{payload["pull_request_number"]}"
+    end
+  end
 end

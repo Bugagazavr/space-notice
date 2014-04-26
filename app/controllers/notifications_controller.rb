@@ -6,4 +6,10 @@ class NotificationsController < ApplicationController
     @project.push params[:title], params[:message], params[:url]
     head :ok
   end
+
+  def travis
+    @project = Project.find_by_token!(params[:token])
+    @project.push_payload(params[:payload])
+    head :ok
+  end
 end
