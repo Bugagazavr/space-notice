@@ -8,5 +8,5 @@ set -e
 bin/bundle install --without development:test
 bin/bundle clean
 bin/dotenv bin/rake db:create db:migrate
-rbenv sudo bin/foreman export upstart -u git /etc/init -l log -a spansy-data
-sudo service spansy-data restart
+rbenv sudo bin/foreman export upstart -u git /etc/init -l log -a space-notice
+sudo service space-notice restart
