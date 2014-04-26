@@ -5,10 +5,10 @@ class Project < ActiveRecord::Base
   validates :user, :name, :token, presence: true
 
   def push(title, message, url)
-    if url.present?
-      url = ProxyUrl.short(url)
-    end
-    params = { body: message, title: name, url: url }
+    url = "https://space-notice.com" if url.blank?
+    url = ProxyUrl.short(url)
+
+    params = { body: message, title: name, url_args: [url] }
     params[:title] = title if title.present?
 
     subscriptions.includes(user: :devices).each do |subscription|
