@@ -25,9 +25,9 @@ class Project < ActiveRecord::Base
     message = "#{payload["branch"]}: #{payload["status_message"]}"
 
     if payload["type"] == "pull_request"
-      url = "#{repo["url"]}/commit/#{payload["commit"]}"
-    else
       url = "#{repo["url"]}/pull/#{payload["pull_request_number"]}"
+    else
+      url = "#{repo["url"]}/commit/#{payload["commit"]}"
     end
     push(title, message, url)
   end
