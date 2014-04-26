@@ -4,10 +4,6 @@ class ProxyUrl < ActiveRecord::Base
       proxy_url.url = url
       proxy_url.code = SecureRandom.uuid
     end
-    proxy_url.short_url
-  end
-
-  def short_url
-    "https://space-notice.com/go/#{code}"
+    proxy_url.code
   end
 end
