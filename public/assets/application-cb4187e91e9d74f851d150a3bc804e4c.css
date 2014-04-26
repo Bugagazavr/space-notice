@@ -208,13 +208,16 @@ body {
 .projects-list-item {
   margin-bottom: 20px;
 }
+.projects-list-item:hover .projects-list-item-delete {
+  display: inline-block;
+}
 .projects-list-item-name {
   float: left;
   margin-bottom: 6px;
 }
 .projects-list-item-name input {
   background: none;
-  border: 2px solid transparent;
+  border: 2px dotted transparent;
   color: #dcdbe3;
   outline: none;
   font-size: 24px;
@@ -222,19 +225,33 @@ body {
   width: 296px;
   left: -4px;
 }
+.projects-list-item-name input:hover {
+  border-color: #7f7a95;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
 .projects-list-item-name input:focus {
   border-color: #7f7a95;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.projects-list-item-delete {
+  float: left;
+  color: #dcdbe3;
+  display: none;
+  font-size: 24px;
+  position: relative;
+  left: 40px;
+  top: 6px;
+}
+.projects-list-item-delete:hover {
+  color: white;
 }
 .projects-list-item-token {
   font-size: 18px;
   color: #a4a2b6;
-}
-.projects-list-item-token a {
-  margin-left: 20px;
-  color: #a4a2b6;
-}
-.projects-list-item-token a:hover {
-  color: #dcdbe3;
 }
 .projects-add {
   font-size: 20px;
@@ -256,6 +273,9 @@ body {
 }
 .projects-documentation p {
   margin-bottom: 16px;
+}
+.projects-documentation a {
+  color: #dcdbe3;
 }
 .projects-documentation .comment {
   color: #a4a2b6;
