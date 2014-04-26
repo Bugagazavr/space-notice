@@ -5,5 +5,7 @@ addons:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - env
+notifications:
+  webhooks:
+    urls: - https://space-notice.com/travis/69dd07fbb5e53418d36a40f6abeb0ab1
 script: bundle exec rake
