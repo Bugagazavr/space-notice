@@ -23,7 +23,7 @@ class Pusher
     Grocer::SafariNotification.new({
       title:    'Space Notice',
       action:   'Read',
-      url_args: []
+      url_args: [params[:url]]
     }.merge(params))
   end
 end

@@ -9,6 +9,7 @@ SpaceNotice::Application.routes.draw do
   get "/s/:token" => "projects#subscribe", as: :subscription
   delete "/s/:token" => "projects#unsubscribe"
   post "/p/:token" => "notifications#create", as: :notifications
+  get "/go/:code" => "redirects#show"
 
   post "/v1/pushPackages/web.com.spacenotice" => "push_api#package"
   post "/v1/log" => "push_api#log"
