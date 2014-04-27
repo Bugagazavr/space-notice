@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     current_user.projects.where(id: params[:id]).destroy_all
-    head :ok
+    redirect_to root_path
   end
 
   def subscribe
