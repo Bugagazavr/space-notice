@@ -14,10 +14,12 @@ class User < ActiveRecord::Base
   end
 
   def generate_project!
-    projects.create! do |project|
+    project = projects.create! do |project|
       project.name = "Application #{projects.count + 1}"
       project.token = SecureRandom.hex(16)
     end
+    project.subscriptions.create! user_id: id
+    project
   end
 
   def subscribe(project)
