@@ -161,10 +161,10 @@ body {
   content: "";
   position: absolute;
   width: 55px;
-  height: 40px;
-  background: url(/assets/main-header-title-before-203d075f90c99df37895a91eab7e3bcb.png) no-repeat left top;
+  height: 42px;
+  background: url(/assets/main-header-title-before-c8ef7f1584fea5f3aa130cb5d16935d4.png) no-repeat left top;
   background-size: 55px 40px;
-  left: -75px;
+  left: -83px;
   top: 0;
 }
 .main-header-auth {
