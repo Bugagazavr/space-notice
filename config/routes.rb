@@ -11,6 +11,8 @@ SpaceNotice::Application.routes.draw do
   post "/p/:token" => "notifications#create", as: :notifications
   get "/go/:code" => "redirects#show"
   post "/travis/:token" => "notifications#travis"
+  post "/cloud66/deploy_success/:token" => "notifications#cloud66_deploy_success"
+  post "/cloud66/deploy_failed/:token" => "notifications#cloud66_deploy_failed"
 
   post "/v1/pushPackages/web.com.spacenotice" => "push_api#package"
   post "/v1/log" => "push_api#log"

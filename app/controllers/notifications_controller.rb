@@ -12,4 +12,16 @@ class NotificationsController < ApplicationController
     @project.push_payload(params[:payload])
     head :ok
   end
+
+  def cloud66_deploy_success
+    @project = Project.find_by_token!(params[:token])
+    @project.push_cloud66_success_payload(params)
+    head :ok
+  end
+
+  def cloud66_deploy_failed
+    @project = Project.find_by_token!(params[:token])
+    @project.push_cloud66_deploy_failed(params)
+    head :ok
+  end
 end

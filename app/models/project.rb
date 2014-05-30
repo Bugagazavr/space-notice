@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def push_payload(string)
+  def push_payload(string) # travis
     payload = JSON.parse(string)
     repo = payload["repository"]
     title   = "#{repo["owner_name"]}/#{repo["name"]}"
@@ -29,6 +29,20 @@ class Project < ActiveRecord::Base
     else
       url = "#{repo["url"]}/commit/#{payload["commit"]}"
     end
+    push(title, message, url)
+  end
+
+  def push_cloud66_deploy_success(payload)
+    title   = payload[:name]
+    message = "#{payload[:git_branch]} successfully redeployed"
+    url     = params[:fqdn]
+    push(title, message, url)
+  end
+
+  def push_cloud66_deploy_failed(payload)
+    title   = payload[:name]
+    message = "#{payload[:git_branch]} redeployment failed"
+    url     = params[:fqdn]
     push(title, message, url)
   end
 end
