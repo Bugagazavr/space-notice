@@ -8,5 +8,5 @@ before_script:
 notifications:
   webhooks:
     urls:
-      - https://space-notice.com/travis/69dd07fbb5e53418d36a40f6abeb0ab1
+      - secure: "V1/iGxLwuko+pLZVG31A5B14E2Vhkhh2DS3aKF/zmVXDqoEgl5+d8CWy03prvemKHCgDW9rOZJGtixTJGViJwF2hGo/wHbSPS2cTghbKYNEM7pSwjnzg1BwUGeYxz9bfPZUSWFRK7W1RdEtm2EaOQ63JAFIqjPz6jUh8reDlMik="
 script: bundle exec rake
