@@ -15,7 +15,7 @@ class NotificationsController < ApplicationController
 
   def cloud66_deploy_success
     @project = Project.find_by_token!(params[:token])
-    @project.push_cloud66_success_payload(params)
+    @project.push_cloud66_deploy_success(params)
     head :ok
   end
 
