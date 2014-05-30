@@ -35,14 +35,14 @@ class Project < ActiveRecord::Base
   def push_cloud66_deploy_success(payload)
     title   = payload[:name]
     message = "#{payload[:git_branch]} successfully redeployed"
-    url     = params[:fqdn]
+    url     = payload[:fqdn]
     push(title, message, url)
   end
 
   def push_cloud66_deploy_failed(payload)
     title   = payload[:name]
     message = "#{payload[:git_branch]} redeployment failed"
-    url     = params[:fqdn]
+    url     = payload[:fqdn]
     push(title, message, url)
   end
 end
