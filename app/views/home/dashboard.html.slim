@@ -26,12 +26,12 @@ section class="projects"
       p
         span class="comment" # To subscribe open the link in Safari 7:
         br
-        | https://space-notice.com/auth/github?token=TOKEN
+        | #{request_base}/auth/github?token=TOKEN
       p
         span class="comment" # Send messages via HTTP POST request:
         br
         | curl -d "message=TEXT&title=PROJECT&url=URL" \
         br
-        |   https://space-notice.com/p/TOKEN
+        |   #{request_base}/p/TOKEN
       p = link_to "Checkout Wiki for examples", "https://github.com/releu/space-notice/wiki/_pages", target: "_blank"
     div class="clearfix"

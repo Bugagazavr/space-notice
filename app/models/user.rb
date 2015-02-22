@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
   before_create :set_token
   after_create :generate_project!
 
-  def self.get_by_omniauth(omnihash)
-    where(github_id: omnihash["uid"]).first || create! do |user|
-      user.github_id = omnihash["uid"]
+  def self.get_by_omniauth(provider, omnihash)
+    where(provider_user_id: omnihash["uid"], provider: provider).first || create! do |user|
+      user.provider_user_id = omnihash["uid"]
+      user.provider = provider
       user.username  = omnihash["info"]["nickname"]
     end
   end

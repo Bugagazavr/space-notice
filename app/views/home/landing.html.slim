@@ -2,17 +2,13 @@ section class="landing"
   div class="wrapper"
     div class="landing-brief"
       | Notifications from space to your Mac
-    div class="landing-sign-up"
-      = link_to "/auth/github", class: "landing-sign-up-button" do
-        i class="fa fa-github"
-        span Sign Up
     div class="clearfix"
 
 section class="howto"
   div class="wrapper"
     div class="howto-instructions"
       markdown:
-        1. [Sign up](/auth/github) and get a token;
+        1. Sign up via [github](/auth/github) or [gitlab](/auth/gitlab) and get a token;
         2. Tell team to open a special link in Safari;
         3. Send push notice about deploy, CI, etc.
     div class="howto-examples"

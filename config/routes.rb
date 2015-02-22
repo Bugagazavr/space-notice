@@ -1,5 +1,5 @@
 SpaceNotice::Application.routes.draw do
-  get "/auth/github/callback" => "sessions#create"
+  get "/auth/:provider/callback" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
   resources :projects, only: [:create, :update, :destroy] do

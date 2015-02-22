@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    self.current_user = User.get_by_omniauth(request.env["omniauth.auth"])
+    self.current_user = User.get_by_omniauth(params[:provider], request.env["omniauth.auth"])
     if token = request.env["omniauth.params"].delete("token")
       redirect_to subscription_path(token: token)
     else
